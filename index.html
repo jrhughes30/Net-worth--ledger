@@ -36,8 +36,7 @@
 
   body{
     background: var(--paper);
-    background-image:
-      linear-gradient(var(--rule) 1px, transparent 1px);
+    background-image: linear-gradient(var(--rule) 1px, transparent 1px);
     background-size: 100% 2.4rem;
     color: var(--ink);
     font-family: 'Inter', sans-serif;
@@ -46,25 +45,18 @@
   }
 
   .app{
-    max-width: 640px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 2rem 1.25rem 6rem;
   }
 
-  /* ---------- Cover / hero ---------- */
-  .cover{
-    text-align: center;
-    padding: 1rem 0 1.75rem;
-  }
+  /* ---------- Cover ---------- */
+  .cover{ text-align: center; padding: 1rem 0 1.5rem; }
 
   .stamp-badge{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: inline-flex; align-items: center; gap: 0.4rem;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--ink-soft);
     border: 1px solid var(--rule);
     background: var(--paper-alt);
@@ -72,10 +64,7 @@
     border-radius: 999px;
     margin-bottom: 1.1rem;
   }
-  .stamp-badge .dot{
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--ink-soft);
-  }
+  .stamp-badge .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--ink-soft); }
   .stamp-badge.live .dot{ background: var(--teal); }
 
   .brand{
@@ -88,36 +77,85 @@
     text-transform: uppercase;
   }
 
-  .hero-number{
+  /* ---------- Card grid ---------- */
+  .cards-wrap{ margin-bottom: 1.75rem; }
+
+  .hero-card{
+    background: var(--paper-alt);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 1.6rem 1.25rem;
+    text-align: center;
+    margin-bottom: 0.9rem;
+    box-shadow: var(--shadow);
+  }
+  .hero-card .card-label{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+  .hero-card .card-value{
     font-family: 'Fraunces', serif;
-    font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
     line-height: 1;
     letter-spacing: -0.01em;
-    margin: 0.2rem 0 0.5rem;
-    position: relative;
     display: inline-block;
+    position: relative;
     padding: 0.15em 0.3em;
+    margin: 0.1rem 0 0.4rem;
   }
-  .hero-number::before{
+  .hero-card .card-value::before{
     content: "";
     position: absolute;
     inset: -0.05em -0.1em;
     border: 2px solid var(--gold);
     border-radius: 10px;
     opacity: 0.55;
-    pointer-events: none;
     transform: rotate(-0.6deg);
+    pointer-events: none;
   }
-
-  .hero-sub{
+  .card-change{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--ink-soft);
   }
-  .hero-sub .up{ color: var(--teal); font-weight: 500; }
-  .hero-sub .down{ color: var(--brick); font-weight: 500; }
+  .card-change .up{ color: var(--teal); font-weight: 500; }
+  .card-change .down{ color: var(--brick); font-weight: 500; }
+
+  .mini-cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.7rem;
+  }
+  @media (min-width: 520px){
+    .mini-cards{ grid-template-columns: repeat(4, 1fr); }
+  }
+  .mini-card{
+    background: var(--paper-alt);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 0.85rem 0.8rem;
+    box-shadow: var(--shadow);
+  }
+  .mini-card .card-label{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.3rem;
+  }
+  .mini-card .card-value{
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .mini-card .card-change{ font-size: 0.68rem; }
 
   /* ---------- Setup card ---------- */
   .setup-card{
@@ -128,24 +166,11 @@
     margin-bottom: 2rem;
     box-shadow: var(--shadow);
   }
-  .setup-card h2{
-    font-family: 'Fraunces', serif;
-    font-size: 1.1rem;
-    margin: 0 0 0.4rem;
-  }
-  .setup-card .hint{
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    margin: 0 0 1rem;
-  }
-  .setup-row{
-    display: flex;
-    gap: 0.5rem;
-  }
+  .setup-card h2{ font-family: 'Fraunces', serif; font-size: 1.1rem; margin: 0 0 0.4rem; }
+  .setup-card .hint{ font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; margin: 0 0 1rem; }
+  .setup-row{ display: flex; gap: 0.5rem; }
   .setup-row input[type="url"]{
-    flex: 1;
-    min-width: 0;
+    flex: 1; min-width: 0;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.82rem;
     padding: 0.65rem 0.75rem;
@@ -154,10 +179,8 @@
     background: var(--paper);
     color: var(--ink);
   }
-  .setup-row input[type="url"]:focus,
-  select:focus, button:focus{
-    outline: 2px solid var(--teal);
-    outline-offset: 1px;
+  .setup-row input[type="url"]:focus, select:focus, button:focus{
+    outline: 2px solid var(--teal); outline-offset: 1px;
   }
   button{
     font-family: 'Inter', sans-serif;
@@ -172,37 +195,21 @@
   }
   button:hover{ background: var(--teal); }
   .ghost-btn{
-    background: transparent;
-    color: var(--ink);
+    background: transparent; color: var(--ink);
     border: 1px solid var(--rule);
-    padding: 0.4rem 0.8rem;
-    font-size: 0.78rem;
+    padding: 0.4rem 0.8rem; font-size: 0.78rem;
   }
   .ghost-btn:hover{ background: var(--paper-alt); color: var(--ink); }
 
   .error-msg{
-    margin-top: 0.9rem;
-    font-size: 0.82rem;
-    color: var(--brick);
-    background: var(--brick-soft);
+    margin-top: 0.9rem; font-size: 0.82rem;
+    color: var(--brick); background: var(--brick-soft);
     border: 1px solid rgba(140,59,46,0.25);
-    border-radius: 8px;
-    padding: 0.7rem 0.85rem;
-    line-height: 1.5;
+    border-radius: 8px; padding: 0.7rem 0.85rem; line-height: 1.5;
   }
 
-  /* ---------- Mapping panel ---------- */
-  .mapping-panel{
-    margin-top: 1.1rem;
-    padding-top: 1.1rem;
-    border-top: 1px dashed var(--rule);
-  }
-  .mapping-panel label{
-    display: block;
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    margin: 0.7rem 0 0.3rem;
-  }
+  .mapping-panel{ margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px dashed var(--rule); }
+  .mapping-panel label{ display: block; font-size: 0.78rem; color: var(--ink-soft); margin: 0.7rem 0 0.3rem; }
   .mapping-panel select{
     width: 100%;
     font-family: 'Inter', sans-serif;
@@ -213,19 +220,30 @@
     background: var(--paper);
     color: var(--ink);
   }
-  .checkbox-row{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.9rem;
-    font-size: 0.82rem;
-  }
-  .mapping-panel .save-mapping-btn{
-    margin-top: 1.1rem;
-    width: 100%;
-  }
+  .mapping-panel .save-mapping-btn{ margin-top: 1.1rem; width: 100%; }
 
-  /* ---------- Chart ---------- */
+  /* ---------- Chart + toggle ---------- */
+  .chart-toggle{
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.2rem;
+  }
+  .toggle-pill{
+    font-family: 'Inter', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background: var(--paper-alt);
+    color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    cursor: pointer;
+  }
+  .toggle-pill.active{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
   .chart-section{
     background: var(--paper-alt);
     border: 1px solid var(--rule);
@@ -237,70 +255,48 @@
 
   /* ---------- Ledger table ---------- */
   .ledger-section{ margin-bottom: 2rem; }
-  .ledger-toolbar{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
-  }
-  .ledger-toolbar h2{
-    font-family: 'Fraunces', serif;
-    font-size: 1.05rem;
-    margin: 0;
-  }
+  .ledger-toolbar{ display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.75rem; }
+  .ledger-toolbar h2{ font-family: 'Fraunces', serif; font-size: 1.05rem; margin: 0; }
+  .table-scroll{ overflow-x: auto; }
   .ledger-table{
     width: 100%;
+    min-width: 560px;
     border-collapse: collapse;
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
   .ledger-table th{
-    text-align: left;
+    text-align: right;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     color: var(--ink-soft);
     padding: 0 0.5rem 0.5rem;
     border-bottom: 1px solid var(--ink);
+    white-space: nowrap;
   }
-  .ledger-table th:not(:first-child), .ledger-table td:not(:first-child){
-    text-align: right;
-  }
-  .ledger-table td{
-    padding: 0.55rem 0.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
+  .ledger-table th:first-child, .ledger-table td:first-child{ text-align: left; }
+  .ledger-table td{ padding: 0.55rem 0.5rem; border-bottom: 1px solid var(--rule); white-space: nowrap; text-align: right; }
   .ledger-table tr:nth-child(even) td{ background: var(--paper-alt); }
   .change-up{ color: var(--teal); }
   .change-down{ color: var(--brick); }
 
   /* ---------- Settings FAB ---------- */
   .settings-fab{
-    position: fixed;
-    right: 1.1rem;
-    bottom: 1.1rem;
-    width: 46px; height: 46px;
-    border-radius: 50%;
-    padding: 0;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: fixed; right: 1.1rem; bottom: 1.1rem;
+    width: 46px; height: 46px; border-radius: 50%;
+    padding: 0; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 14px rgba(27,36,32,0.25);
   }
 
   [hidden]{ display: none !important; }
 
   @media (prefers-reduced-motion: no-preference){
-    .setup-card, .chart-section, .ledger-section{
-      animation: rise 0.4s ease both;
-    }
-    @keyframes rise{
-      from{ opacity: 0; transform: translateY(6px); }
-      to{ opacity: 1; transform: translateY(0); }
-    }
+    .setup-card, .chart-section, .ledger-section, .cards-wrap{ animation: rise 0.4s ease both; }
+    @keyframes rise{ from{ opacity: 0; transform: translateY(6px); } to{ opacity: 1; transform: translateY(0); } }
   }
 </style>
 </head>
@@ -311,13 +307,11 @@
   <header class="cover">
     <div class="stamp-badge" id="lastSynced"><span class="dot"></span><span id="lastSyncedText">Not connected</span></div>
     <p class="brand">Net Worth Ledger</p>
-    <div class="hero-number" id="currentNetWorth">$0</div>
-    <div class="hero-sub" id="heroChange">Connect your sheet to begin</div>
   </header>
 
   <section class="setup-card" id="setupCard">
     <h2>Connect your sheet</h2>
-    <p class="hint">Click <strong>Share</strong> (top right of your sheet) → set General access to <strong>"Anyone with the link"</strong> → Viewer. Then just paste your sheet's normal browser address-bar link below (the one with <code>/edit</code> in it) — no need to publish to web.</p>
+    <p class="hint">Click <strong>Share</strong> (top right of your sheet) → set General access to <strong>"Anyone with the link"</strong> → Viewer. Then paste your sheet's normal browser address-bar link below (the one with <code>/edit</code> in it).</p>
     <div class="setup-row">
       <input id="csvUrlInput" type="url" inputmode="url" placeholder="https://docs.google.com/spreadsheets/d/.../edit#gid=0" />
       <button id="connectBtn">Connect</button>
@@ -325,32 +319,58 @@
     <div class="error-msg" id="setupError" hidden></div>
 
     <div class="mapping-panel" id="mappingPanel" hidden>
-      <p class="hint" style="margin-bottom:0;">Couldn't tell which columns to use — pick them below.</p>
+      <p class="hint" style="margin-bottom:0;">Couldn't match all 5 categories automatically — pick the right column for each.</p>
       <label for="mapDate">Date column</label>
       <select id="mapDate"></select>
-
-      <div class="checkbox-row">
-        <input type="checkbox" id="hasSeparate" />
-        <label for="hasSeparate" style="margin:0;">My sheet has separate Assets &amp; Liabilities columns</label>
-      </div>
-
-      <div id="netWorthMapWrap">
-        <label for="mapNetWorth">Net worth column</label>
-        <select id="mapNetWorth"></select>
-      </div>
-      <div id="separateMapWrap" hidden>
-        <label for="mapAssets">Assets column</label>
-        <select id="mapAssets"></select>
-        <label for="mapLiabilities">Liabilities column</label>
-        <select id="mapLiabilities"></select>
-      </div>
-
+      <label for="mapAssets">Total Assets column</label>
+      <select id="mapAssets"></select>
+      <label for="mapLiabilities">Total Liabilities column</label>
+      <select id="mapLiabilities"></select>
+      <label for="mapNetWorth">Net Worth column</label>
+      <select id="mapNetWorth"></select>
+      <label for="mapInvestible">Investible Net Worth column</label>
+      <select id="mapInvestible"></select>
+      <label for="mapFire">FIRE column</label>
+      <select id="mapFire"></select>
       <button class="save-mapping-btn" id="saveMappingBtn">Save &amp; load data</button>
     </div>
   </section>
 
-  <section class="chart-section" id="chartSection" hidden>
-    <canvas id="netWorthChart" height="220"></canvas>
+  <section class="cards-wrap" id="cardsWrap" hidden>
+    <div class="hero-card">
+      <div class="card-label">Net Worth</div>
+      <div class="card-value" id="val-netWorth">$0</div>
+      <div class="card-change" id="chg-netWorth"></div>
+    </div>
+    <div class="mini-cards">
+      <div class="mini-card">
+        <div class="card-label">Total Assets</div>
+        <div class="card-value" id="val-assets">$0</div>
+        <div class="card-change" id="chg-assets"></div>
+      </div>
+      <div class="mini-card">
+        <div class="card-label">Total Liabilities</div>
+        <div class="card-value" id="val-liabilities">$0</div>
+        <div class="card-change" id="chg-liabilities"></div>
+      </div>
+      <div class="mini-card">
+        <div class="card-label">Investible Net Worth</div>
+        <div class="card-value" id="val-investible">$0</div>
+        <div class="card-change" id="chg-investible"></div>
+      </div>
+      <div class="mini-card">
+        <div class="card-label">FIRE</div>
+        <div class="card-value" id="val-fire">$0</div>
+        <div class="card-change" id="chg-fire"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="chartWrap" hidden>
+    <div class="chart-toggle" id="chartToggle"></div>
+    <section class="chart-section">
+      <canvas id="netWorthChart" height="220"></canvas>
+    </section>
   </section>
 
   <section class="ledger-section" id="ledgerSection" hidden>
@@ -358,12 +378,14 @@
       <h2>Entries</h2>
       <button class="ghost-btn" id="refreshBtn">Refresh</button>
     </div>
-    <table class="ledger-table">
-      <thead>
-        <tr><th>Date</th><th>Net worth</th><th>Change</th></tr>
-      </thead>
-      <tbody id="ledgerBody"></tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="ledger-table">
+        <thead>
+          <tr><th>Date</th><th>Assets</th><th>Liabilities</th><th>Net Worth</th><th>Investible NW</th><th>FIRE</th></tr>
+        </thead>
+        <tbody id="ledgerBody"></tbody>
+      </table>
+    </div>
   </section>
 
 </div>
@@ -373,8 +395,7 @@
 <script>
 (function(){
 
-  // ---------- storage helper: works inside Claude artifact preview (window.storage)
-  // and as a standalone hosted/offline page (localStorage fallback) ----------
+  // ---------- storage helper ----------
   async function saveSetting(key, value){
     if (window.storage){
       try { await window.storage.set(key, JSON.stringify(value)); return; } catch(e){}
@@ -383,18 +404,11 @@
   }
   async function loadSetting(key){
     if (window.storage){
-      try {
-        const r = await window.storage.get(key);
-        return r ? JSON.parse(r.value) : null;
-      } catch(e){ return null; }
+      try { const r = await window.storage.get(key); return r ? JSON.parse(r.value) : null; } catch(e){ return null; }
     }
-    try {
-      const v = localStorage.getItem(key);
-      return v ? JSON.parse(v) : null;
-    } catch(e){ return null; }
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch(e){ return null; }
   }
 
-  // ---------- element refs ----------
   const el = (id) => document.getElementById(id);
   const setupCard = el('setupCard');
   const csvUrlInput = el('csvUrlInput');
@@ -402,51 +416,33 @@
   const setupError = el('setupError');
   const mappingPanel = el('mappingPanel');
   const mapDate = el('mapDate');
-  const mapNetWorth = el('mapNetWorth');
   const mapAssets = el('mapAssets');
   const mapLiabilities = el('mapLiabilities');
-  const hasSeparate = el('hasSeparate');
-  const netWorthMapWrap = el('netWorthMapWrap');
-  const separateMapWrap = el('separateMapWrap');
+  const mapNetWorth = el('mapNetWorth');
+  const mapInvestible = el('mapInvestible');
+  const mapFire = el('mapFire');
   const saveMappingBtn = el('saveMappingBtn');
-  const chartSection = el('chartSection');
+  const cardsWrap = el('cardsWrap');
+  const chartWrap = el('chartWrap');
+  const chartToggle = el('chartToggle');
   const ledgerSection = el('ledgerSection');
   const ledgerBody = el('ledgerBody');
   const refreshBtn = el('refreshBtn');
   const settingsToggle = el('settingsToggle');
   const lastSyncedBadge = el('lastSynced');
   const lastSyncedText = el('lastSyncedText');
-  const currentNetWorth = el('currentNetWorth');
-  const heroChange = el('heroChange');
+
+  const METRICS = [
+    { key: 'netWorth',   label: 'Net Worth',            invert: false },
+    { key: 'assets',     label: 'Total Assets',         invert: false },
+    { key: 'liabilities',label: 'Total Liabilities',    invert: true  },
+    { key: 'investible', label: 'Investible Net Worth', invert: false },
+    { key: 'fire',       label: 'FIRE',                 invert: false }
+  ];
 
   let chart = null;
-  let lastHeaders = [];
-
-  hasSeparate.addEventListener('change', () => {
-    netWorthMapWrap.hidden = hasSeparate.checked;
-    separateMapWrap.hidden = !hasSeparate.checked;
-  });
-
-  function normalizeSheetUrl(rawUrl){
-    // Already a working gviz CSV endpoint
-    if (/\/gviz\/tq/.test(rawUrl) && /out:csv/.test(rawUrl)){
-      return { url: rawUrl, ok: true };
-    }
-    // Publish-to-web links (contain /d/e/) redirect through a URL that blocks
-    // cross-origin fetches — a Google-side limitation, not fixable client-side.
-    if (/\/d\/e\//.test(rawUrl)){
-      return { url: null, ok: false, reason: 'published' };
-    }
-    // Normal share/edit link — pull out the spreadsheet ID and tab (gid)
-    const idMatch = rawUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
-    if (idMatch){
-      const id = idMatch[1];
-      const gidMatch = rawUrl.match(/[#&?]gid=(\d+)/);
-      const gid = gidMatch ? gidMatch[1] : '0';
-      return { url: 'https://docs.google.com/spreadsheets/d/' + id + '/gviz/tq?tqx=out:csv&gid=' + gid, ok: true };
-    }
-    return { url: null, ok: false, reason: 'unrecognized' };
-  }
+  let allRows = [];
+  let activeMetric = 'netWorth';
 
   connectBtn.addEventListener('click', async () => {
     const raw = csvUrlInput.value.trim();
@@ -466,30 +462,40 @@
   });
 
   refreshBtn.addEventListener('click', () => loadData());
-
-  settingsToggle.addEventListener('click', () => {
-    setupCard.hidden = !setupCard.hidden;
-  });
+  settingsToggle.addEventListener('click', () => { setupCard.hidden = !setupCard.hidden; });
 
   saveMappingBtn.addEventListener('click', async () => {
-    const mapping = { dateCol: mapDate.value };
-    if (hasSeparate.checked){
-      mapping.assetsCol = mapAssets.value;
-      mapping.liabilitiesCol = mapLiabilities.value;
-    } else {
-      mapping.netWorthCol = mapNetWorth.value;
-    }
+    const mapping = {
+      dateCol: mapDate.value,
+      assetsCol: mapAssets.value,
+      liabilitiesCol: mapLiabilities.value,
+      netWorthCol: mapNetWorth.value,
+      investibleCol: mapInvestible.value,
+      fireCol: mapFire.value
+    };
     await saveSetting('mapping', mapping);
     mappingPanel.hidden = true;
     loadData();
   });
 
-  function showError(msg){
-    setupError.textContent = msg;
-    setupError.hidden = false;
-  }
-  function clearError(){
-    setupError.hidden = true;
+  function showError(msg){ setupError.textContent = msg; setupError.hidden = false; }
+  function clearError(){ setupError.hidden = true; }
+
+  function normalizeSheetUrl(rawUrl){
+    if (/\/gviz\/tq/.test(rawUrl) && /out:csv/.test(rawUrl)){
+      return { url: rawUrl, ok: true };
+    }
+    if (/\/d\/e\//.test(rawUrl)){
+      return { url: null, ok: false, reason: 'published' };
+    }
+    const idMatch = rawUrl.match(/\/d\/([a-zA-Z0-9-_]+)/);
+    if (idMatch){
+      const id = idMatch[1];
+      const gidMatch = rawUrl.match(/[#&?]gid=(\d+)/);
+      const gid = gidMatch ? gidMatch[1] : '0';
+      return { url: 'https://docs.google.com/spreadsheets/d/' + id + '/gviz/tq?tqx=out:csv&gid=' + gid, ok: true };
+    }
+    return { url: null, ok: false, reason: 'unrecognized' };
   }
 
   function scoreHeader(header, keywords){
@@ -504,31 +510,44 @@
 
   function autoDetect(headers){
     const dateKeywords = ['date', 'month', 'as of'];
-    const nwKeywords = ['net worth', 'networth', 'net'];
-    const assetKeywords = ['asset', 'assets'];
-    const liabKeywords = ['liabilit', 'debt', 'liabilities'];
+    const investibleKeywords = ['investible net worth', 'investable net worth', 'investible', 'investable'];
+    const fireKeywords = ['fire'];
+    const assetKeywords = ['total assets', 'assets'];
+    const liabKeywords = ['total liabilities', 'liabilit', 'debt'];
 
-    let dateCol = null, dateScore = 0;
-    let nwCol = null, nwScore = 0;
-    let assetsCol = null, assetsScore = 0;
-    let liabCol = null, liabScore = 0;
-
-    headers.forEach(h => {
-      let s = scoreHeader(h, dateKeywords);
-      if (s > dateScore){ dateScore = s; dateCol = h; }
-      s = scoreHeader(h, nwKeywords);
-      if (s > nwScore){ nwScore = s; nwCol = h; }
-      s = scoreHeader(h, assetKeywords);
-      if (s > assetsScore){ assetsScore = s; assetsCol = h; }
-      s = scoreHeader(h, liabKeywords);
-      if (s > liabScore){ liabScore = s; liabCol = h; }
-    });
-
-    if (dateCol && nwScore >= 2){
-      return { dateCol, netWorthCol: nwCol };
+    const used = new Set();
+    function bestMatch(keywords, exclude){
+      let bestCol = null, bestScore = 0;
+      headers.forEach(h => {
+        if (used.has(h)) return;
+        if (exclude && exclude(h)) return;
+        const s = scoreHeader(h, keywords);
+        if (s > bestScore){ bestScore = s; bestCol = h; }
+      });
+      return bestScore >= 2 ? bestCol : null;
     }
-    if (dateCol && assetsScore >= 2 && liabScore >= 2){
-      return { dateCol, assetsCol, liabilitiesCol: liabCol };
+
+    const dateCol = bestMatch(dateKeywords);
+    if (dateCol) used.add(dateCol);
+
+    const investibleCol = bestMatch(investibleKeywords);
+    if (investibleCol) used.add(investibleCol);
+
+    const fireCol = bestMatch(fireKeywords);
+    if (fireCol) used.add(fireCol);
+
+    // Net worth must not be the investible column already claimed
+    const netWorthCol = bestMatch(['net worth', 'networth'], (h) => used.has(h));
+    if (netWorthCol) used.add(netWorthCol);
+
+    const assetsCol = bestMatch(assetKeywords);
+    if (assetsCol) used.add(assetsCol);
+
+    const liabilitiesCol = bestMatch(liabKeywords);
+    if (liabilitiesCol) used.add(liabilitiesCol);
+
+    if (dateCol && assetsCol && liabilitiesCol && netWorthCol && investibleCol && fireCol){
+      return { dateCol, assetsCol, liabilitiesCol, netWorthCol, investibleCol, fireCol };
     }
     return null;
   }
@@ -544,15 +563,11 @@
     if (negParen) n = -Math.abs(n);
     return n;
   }
-
   function parseDate(raw){
     if (!raw) return null;
-    const s = String(raw).trim();
-    const d = new Date(s);
-    if (!isNaN(d.getTime())) return d;
-    return null;
+    const d = new Date(String(raw).trim());
+    return isNaN(d.getTime()) ? null : d;
   }
-
   function populateSelect(select, headers, selected){
     select.innerHTML = '';
     headers.forEach(h => {
@@ -562,21 +577,19 @@
       select.appendChild(opt);
     });
   }
-
   function showMappingUI(headers){
-    lastHeaders = headers;
     populateSelect(mapDate, headers);
-    populateSelect(mapNetWorth, headers);
     populateSelect(mapAssets, headers);
     populateSelect(mapLiabilities, headers);
-    hasSeparate.checked = false;
-    netWorthMapWrap.hidden = false;
-    separateMapWrap.hidden = true;
+    populateSelect(mapNetWorth, headers);
+    populateSelect(mapInvestible, headers);
+    populateSelect(mapFire, headers);
     mappingPanel.hidden = false;
     setupCard.hidden = false;
   }
 
   function fmtMoney(n){
+    if (n == null || isNaN(n)) return '—';
     const sign = n < 0 ? '-' : '';
     const abs = Math.abs(Math.round(n));
     return sign + '$' + abs.toLocaleString('en-US');
@@ -607,85 +620,100 @@
     const parsed = Papa.parse(text.trim(), { header: true, skipEmptyLines: true });
     const headers = parsed.meta.fields || [];
     if (!headers.length){
-      showError('That link didn\u2019t return any data. Double check it ends in output=csv.');
+      showError('That link didn\u2019t return any data.');
       return;
     }
 
     let mapping = await loadSetting('mapping');
     if (!mapping){
       mapping = autoDetect(headers);
-      if (!mapping){
-        showMappingUI(headers);
-        return;
-      }
+      if (!mapping){ showMappingUI(headers); return; }
     }
 
     const rows = [];
     for (const r of parsed.data){
       const d = parseDate(r[mapping.dateCol]);
       if (!d) continue;
-      let nw;
-      if (mapping.netWorthCol){
-        nw = parseNumber(r[mapping.netWorthCol]);
-      } else {
-        const a = parseNumber(r[mapping.assetsCol]);
-        const l = parseNumber(r[mapping.liabilitiesCol]);
-        if (isNaN(a) || isNaN(l)) continue;
-        nw = a - l;
-      }
-      if (isNaN(nw)) continue;
-      rows.push({ date: d, value: nw });
+      rows.push({
+        date: d,
+        assets: parseNumber(r[mapping.assetsCol]),
+        liabilities: parseNumber(r[mapping.liabilitiesCol]),
+        netWorth: parseNumber(r[mapping.netWorthCol]),
+        investible: parseNumber(r[mapping.investibleCol]),
+        fire: parseNumber(r[mapping.fireCol])
+      });
     }
 
     if (!rows.length){
-      showError('Found the sheet, but no valid date + net worth rows. Check your column mapping.');
+      showError('Found the sheet, but no valid rows with all 5 categories. Check your column mapping.');
       settingsToggle.hidden = false;
       return;
     }
 
     rows.sort((a,b) => a.date - b.date);
+    allRows = rows;
 
     clearError();
     mappingPanel.hidden = true;
     setupCard.hidden = true;
     settingsToggle.hidden = false;
-    chartSection.hidden = false;
+    cardsWrap.hidden = false;
+    chartWrap.hidden = false;
     ledgerSection.hidden = false;
     lastSyncedBadge.classList.add('live');
     lastSyncedText.textContent = 'Synced ' + new Date().toLocaleTimeString('en-US', {hour: 'numeric', minute:'2-digit'});
 
-    renderHero(rows);
-    renderChart(rows);
+    renderCards(rows);
+    renderToggle();
+    renderChart(activeMetric);
     renderTable(rows);
   }
 
-  function renderHero(rows){
+  function renderCards(rows){
     const latest = rows[rows.length - 1];
-    const first = rows[0];
     const prev = rows.length > 1 ? rows[rows.length - 2] : null;
 
-    currentNetWorth.textContent = fmtMoney(latest.value);
-
-    const totalChange = latest.value - first.value;
-    const totalPct = first.value !== 0 ? (totalChange / Math.abs(first.value)) * 100 : 0;
-    let text = (totalChange >= 0 ? '+' : '') + fmtMoney(totalChange) + ' (' + totalPct.toFixed(1) + '%) since ' + fmtDate(first.date);
-    let cls = totalChange >= 0 ? 'up' : 'down';
-
-    if (prev){
-      const stepChange = latest.value - prev.value;
-      const arrow = stepChange >= 0 ? '↑' : '↓';
-      const stepCls = stepChange >= 0 ? 'up' : 'down';
-      text = '<span class="' + stepCls + '">' + arrow + ' ' + fmtMoney(Math.abs(stepChange)) + '</span> since last entry · ' + text;
-    } else {
-      text = '<span class="' + cls + '">' + text + '</span>';
-    }
-    heroChange.innerHTML = text;
+    METRICS.forEach(m => {
+      const valEl = el('val-' + (m.key === 'netWorth' ? 'netWorth' : m.key));
+      const chgEl = el('chg-' + (m.key === 'netWorth' ? 'netWorth' : m.key));
+      if (!valEl) return;
+      const v = latest[m.key];
+      valEl.textContent = fmtMoney(v);
+      if (prev){
+        const diff = v - prev[m.key];
+        const good = m.invert ? diff <= 0 : diff >= 0;
+        const cls = good ? 'up' : 'down';
+        const arrow = diff >= 0 ? '↑' : '↓';
+        chgEl.innerHTML = '<span class="' + cls + '">' + arrow + ' ' + fmtMoney(Math.abs(diff)) + '</span> since last entry';
+      } else {
+        chgEl.textContent = '';
+      }
+    });
   }
 
-  function renderChart(rows){
-    const trendUp = rows[rows.length-1].value >= rows[0].value;
-    const lineColor = trendUp ? '#2F6F5E' : '#8C3B2E';
-    const fillColor = trendUp ? 'rgba(47,111,94,0.10)' : 'rgba(140,59,46,0.10)';
+  function renderToggle(){
+    chartToggle.innerHTML = '';
+    METRICS.forEach(m => {
+      const btn = document.createElement('button');
+      btn.className = 'toggle-pill' + (m.key === activeMetric ? ' active' : '');
+      btn.textContent = m.label;
+      btn.addEventListener('click', () => {
+        activeMetric = m.key;
+        renderToggle();
+        renderChart(activeMetric);
+      });
+      chartToggle.appendChild(btn);
+    });
+  }
+
+  function renderChart(metricKey){
+    const metric = METRICS.find(m => m.key === metricKey);
+    const rows = allRows;
+    const first = rows[0][metricKey];
+    const last = rows[rows.length-1][metricKey];
+    const improved = metric.invert ? last <= first : last >= first;
+    const lineColor = improved ? '#2F6F5E' : '#8C3B2E';
+    const fillColor = improved ? 'rgba(47,111,94,0.10)' : 'rgba(140,59,46,0.10)';
 
     const ctx = document.getElementById('netWorthChart').getContext('2d');
     if (chart) chart.destroy();
@@ -694,7 +722,8 @@
       data: {
         labels: rows.map(r => fmtDate(r.date)),
         datasets: [{
-          data: rows.map(r => r.value),
+          label: metric.label,
+          data: rows.map(r => r[metricKey]),
           borderColor: lineColor,
           backgroundColor: fillColor,
           borderWidth: 2.5,
@@ -715,24 +744,12 @@
             backgroundColor: '#1B2420',
             titleFont: { family: 'IBM Plex Mono' },
             bodyFont: { family: 'IBM Plex Mono' },
-            callbacks: {
-              label: (item) => fmtMoney(item.parsed.y)
-            }
+            callbacks: { label: (item) => fmtMoney(item.parsed.y) }
           }
         },
         scales: {
-          x: {
-            grid: { display: false },
-            ticks: { font: { family: 'IBM Plex Mono', size: 10 }, color: '#4B564F', maxTicksLimit: 6 }
-          },
-          y: {
-            grid: { color: '#D9D2C1' },
-            ticks: {
-              font: { family: 'IBM Plex Mono', size: 10 },
-              color: '#4B564F',
-              callback: (v) => fmtMoney(v)
-            }
-          }
+          x: { grid: { display: false }, ticks: { font: { family: 'IBM Plex Mono', size: 10 }, color: '#4B564F', maxTicksLimit: 6 } },
+          y: { grid: { color: '#D9D2C1' }, ticks: { font: { family: 'IBM Plex Mono', size: 10 }, color: '#4B564F', callback: (v) => fmtMoney(v) } }
         }
       }
     });
@@ -741,33 +758,25 @@
   function renderTable(rows){
     ledgerBody.innerHTML = '';
     const reversed = [...rows].reverse();
-    reversed.forEach((r, i) => {
-      const prev = reversed[i+1];
+    reversed.forEach(r => {
       const tr = document.createElement('tr');
-      const changeCell = prev
-        ? (() => {
-            const diff = r.value - prev.value;
-            const cls = diff >= 0 ? 'change-up' : 'change-down';
-            const arrow = diff >= 0 ? '+' : '−';
-            return '<td class="' + cls + '">' + arrow + fmtMoney(Math.abs(diff)).replace('$','$') + '</td>';
-          })()
-        : '<td>—</td>';
       tr.innerHTML =
         '<td>' + fmtDate(r.date) + '</td>' +
-        '<td>' + fmtMoney(r.value) + '</td>' +
-        changeCell;
+        '<td>' + fmtMoney(r.assets) + '</td>' +
+        '<td>' + fmtMoney(r.liabilities) + '</td>' +
+        '<td>' + fmtMoney(r.netWorth) + '</td>' +
+        '<td>' + fmtMoney(r.investible) + '</td>' +
+        '<td>' + fmtMoney(r.fire) + '</td>';
       ledgerBody.appendChild(tr);
     });
   }
 
-  // service worker (only relevant when hosted, harmless elsewhere)
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')){
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./sw.js').catch(() => {});
     });
   }
 
-  // init
   (async function init(){
     const savedUrl = await loadSetting('csvUrl');
     if (savedUrl){
