@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Net Worth Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Personal Finance Dashboard</p>
+        <h1>Net Worth Tracker</h1>
+        <p class="subtitle">Live summary powered by your Google Sheet.</p>
+      </div>
+      <div class="status-pill" id="dataStatus">Loading sheet…</div>
+    </section>
+
+    <section class="cards" id="cards" aria-label="Net worth summary"></section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Trend</p>
+          <h2 id="chartTitle">Net Worth Over Time</h2>
+        </div>
+        <select id="metricSelect" aria-label="Choose metric"></select>
+      </div>
+      <div class="chart-wrap">
+        <svg id="trendChart" viewBox="0 0 900 320" role="img" aria-label="Trend chart"></svg>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Latest Month</p>
+          <h2>Numbers at a Glance</h2>
+        </div>
+        <p class="updated" id="latestLabel"></p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Latest Value</th>
+              <th>Previous Month</th>
+              <th>Change</th>
+            </tr>
+          </thead>
+          <tbody id="summaryTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
